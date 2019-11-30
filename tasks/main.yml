@@ -3,6 +3,8 @@
   notify: restart lldpd
   when: lldpd | default(false)
 
+- include: "{{ ansible_os_family | lower }}.yml"
+
 - name: be sure lldpd is enabled and started
   service: name=lldpd enabled=yes state=started
   when: lldpd | default(false)

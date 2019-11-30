@@ -1,0 +1,2 @@
+lldpd: false
+lldpd_options: "-I eth*,enp*,eno*,!bond*,!team*,!br*,!virbr*,!docker*"

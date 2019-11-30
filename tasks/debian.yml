@@ -1,0 +1,9 @@
+---
+
+- name: Configure lldpd (Debian)
+  lineinfile:
+    dest: /etc/default/lldpd
+    regexp: "^DAEMON_ARGS="
+    line: 'DAEMON_ARGS="{{ lldpd_options }}"'
+  notify: restart lldpd
+  become: true

@@ -1,0 +1,9 @@
+---
+
+- name: Configure lldpd (RedHat)
+  lineinfile:
+    dest: /etc/sysconfig/lldpd
+    regexp: "^LLDPD_OPTIONS="
+    line: 'LLDPD_OPTIONS="{{ lldpd_options }}"'
+  notify: restart lldpd
+  become: true
