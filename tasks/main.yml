@@ -1,0 +1,8 @@
+- name: lldpd must be installed
+  package: name="lldpd" state=latest
+  notify: restart lldpd
+  when: lldpd | default(false)
+
+- name: be sure lldpd is enabled and started
+  service: name=lldpd enabled=yes state=started
+  when: lldpd | default(false)

@@ -1,0 +1,6 @@
+- name: restart lldpd
+  service: name=lldpd state=restarted
+  notify: check lldpd
+
+- name: check lldpd
+  command: systemctl status lldpd
